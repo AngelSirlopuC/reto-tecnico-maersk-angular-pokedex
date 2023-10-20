@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header">
+        <h1>Pokedex</h1>
+    </div>
+    <div class="card-body">
+        <div class="list-group">
+            <ng-container *ngFor="let pokemon of pokemons$ | async | slice: (page-1) * pageSize : page * pageSize">
+                <a href="#" class="list-group-item list-group-item-action">{{ pokemon.name }}</a>
+            </ng-container>
+        </div>
+
+    </div>
+    <div class="card-footer">
+        <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [maxSize]="5"
+        [rotate]="true"
+        [ellipses]="false"
+        [boundaryLinks]="true"
+        [collectionSize]= "(pokemons$ | async)?.length || 0"></ngb-pagination>
+    </div>
+</div>
