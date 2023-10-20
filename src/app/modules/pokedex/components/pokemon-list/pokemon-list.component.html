@@ -1,11 +1,15 @@
-<div class="card">
+<div class="card text-white bg-danger">
     <div class="card-header">
         <h1>Pokedex</h1>
     </div>
+    <div class="card-body text-dark bg-light">
+        <input type="search" aria-label="Search" class="form-control" [(ngModel)]="searchText" placeholder="Ingrese nombre de Pokemon" />
+    </div>
     <div class="card-body">
+        <h5 class="card-title">Lista de pokemon</h5>
         <div class="list-group">
-            <ng-container *ngFor="let pokemon of pokemons$ | async | slice: (page-1) * pageSize : page * pageSize">
-                <a href="#" class="list-group-item list-group-item-action">{{ pokemon.name }}</a>
+            <ng-container *ngFor="let pokemon of pokemons$ | async | filter : searchText | slice: (page-1) * pageSize : page * pageSize">
+                <a (click)="goPokemon(pokemon.url)" class="list-group-item list-group-item-action">{{ pokemon.name }}</a>
             </ng-container>
         </div>
 

@@ -1,6 +1,9 @@
+
 <div class="row">
     <div class="col">
-        <app-pokemon-list></app-pokemon-list>
+        <app-pokemon-list (goPokemonFn)="redirectTo($event)"></app-pokemon-list>
     </div>
-    <div class="col"></div>
+    <div class="col" *ngIf="PokemonId != null">
+        <!-- <app-pokemon-list></app-pokemon-list> -->
+    </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokedex-list',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokedexListComponent implements OnInit {
 
-
-  constructor() { }
+  PokemonId : number | null = null;
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
-
+  redirectTo(id : number){
+    this.PokemonId = id;
+  }
 }
