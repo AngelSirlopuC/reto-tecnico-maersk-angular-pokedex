@@ -5,7 +5,7 @@ import { PokemonRequest } from '../models/pokemon-request.model';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: PokemonRequest[] | null, searchText: string): any[] {
+  transform(items: PokemonRequest[] | null, searchText: string): PokemonRequest[] {
     if (!items) { return []; }
     if (!searchText) { return items; }
     searchText = searchText.toLowerCase();

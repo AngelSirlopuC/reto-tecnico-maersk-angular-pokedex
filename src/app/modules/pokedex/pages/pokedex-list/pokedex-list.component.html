@@ -1,9 +1,11 @@
 
 <div class="row">
-    <div class="col">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-6">
         <app-pokemon-list (goPokemonFn)="redirectTo($event)"></app-pokemon-list>
     </div>
-    <div class="col" *ngIf="PokemonId != null">
-        <!-- <app-pokemon-list></app-pokemon-list> -->
+    <div class="col-md-4 col-12 d-flex justify-content-center align-items-center">
+        <app-pokemon-detail [pokemonId]="PokemonId" *ngIf="PokemonId != null" (closeEvent)="close($event)"></app-pokemon-detail>
     </div>
 </div>

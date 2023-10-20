@@ -13,7 +13,12 @@ export class PokedexListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   redirectTo(id : number){
     this.PokemonId = id;
+  }
+
+  close(event : any){
+    this.PokemonId = null;
   }
 }
